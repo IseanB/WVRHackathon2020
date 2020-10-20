@@ -39,5 +39,12 @@ Basic Code:
 
 Important info:
 
-	Don't add your code into the main method. Make your methods which, when called, will change the frame into what your frame is supposed to do.
-	If your working on the "Index" frame, call a method once the user has inputed a team number and clicked the button. Provide the team number in the method call.
+	- When you're creating your Java Project and you are on the step of creating 
+	  a Class, DO NOT select the "public static void(String[] args)" options 
+	  because this will make it harder to integrate files
+	  
+	- Don't add your code into the main method. Make your methods which, when called, 
+	  will change the frame into what your frame is supposed to do.
+	  
+	- If your working on the "Index" frame, call a method once the user has inputed 
+	  a team number and clicked the button. Provide the team number in the method call.
