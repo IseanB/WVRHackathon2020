@@ -38,5 +38,6 @@ Basic Code:
 	}
 
 Important info:
+
 	Don't add your code into the main method. Make your methods which, when called, will change the frame into what your frame is supposed to do.
 	If your working on the "Index" frame, call a method once the user has inputed a team number and clicked the button. Provide the team number in the method call.
