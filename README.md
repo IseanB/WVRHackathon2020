@@ -16,15 +16,19 @@ Frames To-Do:                                                               Who 
 
 Basic Code:
 
-import javax.swing.JFrame;
+	import javax.swing.JFrame;
 
 	public class Main {
+	
 		public static void main(String[] args) {
+		
 			JFrame frame = new JFrame(); // Creates a Window
 			frame.setTitle("WVR Scouting App"); // Titles the Window
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // When the X is clicked, the window closes
 			frame.setResizable(false); // Keeps a consistent window size.
 			frame.setSize(1200,600);  // In pixels, the size of the widow. (width x height)
 			frame.setVisible(true); // Makes the frame visible
+			
 		}
+		
 	}
