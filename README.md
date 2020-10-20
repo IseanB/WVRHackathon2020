@@ -19,7 +19,6 @@ Basic Code:
 import javax.swing.JFrame;
 
 public class Main {
-
 	public static void main(String[] args) {
 		JFrame frame = new JFrame(); // Creates a Window
 		frame.setTitle("WVR Scouting App"); // Titles the Window
@@ -27,7 +26,5 @@ public class Main {
 		frame.setResizable(false); // Keeps a consistent window size.
 		frame.setSize(1200,600);  // In pixels, the size of the widow. (width x height)
 		frame.setVisible(true); // Makes the frame visible
-		
 	}
-
 }
