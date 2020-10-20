@@ -23,7 +23,7 @@ public class Main {
 			frame.add(fieldpic);
 			frame.setVisible(true);
 			a = false;
-			System.out.print("Mayeb");
+			System.out.print("End Of Loop A");
 		}
 		
 	}
