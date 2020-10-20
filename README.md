@@ -1,17 +1,17 @@
 # WVRHackathon2020
 ///
 Definitions:
-    Frame: a window with a certain buttons and features.
+	  Frame: a window with a certain buttons and features.
     
     
-Frames To-Do:                                                               Who Will Do It:             Must Have / Important Info:
-    Main                                                                    Harris                      Button: Year# / Include Title and Team#
-    Index                                                                   Harris                      Buttons: (One for Each Dashes), Input: Team# / Given: Year#
-    - Visual Data                                                           Satvik, Isean               Button: Back / Given: Team#
-    - OPR                                                                   Eric                        Button: Back / Given: Team#
-    - Robot description and Avg points                                      Carl                        Button: Back / Given: Team#
-    - Notes                                                                 Chandrack                   Button: Back / Given: Team#
-    Back Button                                                             Chandrack                   N/A / Must be in the same spot when the frames are combined.
+	Frames To-Do:                                                               Who Will Do It:             Must Have / Important Info:
+	    Main                                                                    Harris                      Button: Year# / Include Title and Team#
+	    Index                                                                   Harris                      Buttons: (One for Each Dashes), Input: Team# / Given: Year#
+	    - Visual Data                                                           Satvik, Isean               Button: Back / Given: Team#
+	    - OPR                                                                   Eric                        Button: Back / Given: Team#
+	    - Robot description and Avg points                                      Carl                        Button: Back / Given: Team#
+	    - Notes                                                                 Chandrack                   Button: Back / Given: Team#
+	    Back Button                                                             Chandrack                   N/A / Must be in the same spot when the frames are combined.
 
 
 Basic Code:
