@@ -1,0 +1,35 @@
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class VisualFrame extends JFrame{
+
+	JFrame frame;
+	JLabel fieldpic;
+	ImageIcon backpic;
+	
+	public VisualFrame(){
+		frame = new JFrame(); // Creates a frame
+		fieldpic = new JLabel(); // Creates a Label variable
+		backpic = new ImageIcon("field2020.png"); //Creates a ImageIcon variable
+		
+		Color customColor = new Color(0,162,232); //Creates a background color
+		
+		
+		frame.setTitle("WVR Scouting App: Visual Data"); // Titles the Window
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // When the X is clicked, the window closes
+		frame.setResizable(false); // Keeps a consistent window size.
+		frame.setSize(1200,600);  // In pixels, the size of the widow. (width x height)
+		frame.getContentPane().setBackground(customColor);
+		
+		fieldpic.setIcon(backpic); //Puts the Label as the ImageIcon
+		fieldpic.setHorizontalAlignment(0); // Centers ImageIcon
+		fieldpic.setVerticalAlignment(0); // Centers ImageIcon
+		frame.add(fieldpic); // Adds Label to the Frame
+		
+		frame.setVisible(true); // Makes the frame visible
+		 
+	}
+
+}
