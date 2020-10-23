@@ -1,0 +1,27 @@
+import java.io.IOException;
+
+import javax.swing.JFrame;
+
+public class MainFrame extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JFrame frame;
+	private int teamnumber;
+	
+	public MainFrame() {
+		frame = new JFrame();
+		teamnumber = 548;
+		this.VisualFrame_Construction();
+	}
+	
+	public void VisualFrame_Construction(){
+		try {
+			new VisualFrame(frame, teamnumber);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
