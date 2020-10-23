@@ -118,13 +118,13 @@ public class VisualFrame extends JFrame{
 	                		if(c >= 3 && c <= 8) {
 	                			totAUTOscore += cell.getNumericCellValue();
 	                			if(cell.getNumericCellValue() != 0) {
-	                				zoneAUTOscore[c-3] = (int) cell.getNumericCellValue(); 
+	                				zoneAUTOscore[c-3] += (int) cell.getNumericCellValue(); 
 	                			}
 	                		}
 	                		else if(c>=11 && c<=16) {
 	                			totTELOPscore += cell.getNumericCellValue();
 	                			if(cell.getNumericCellValue() != 0) {
-	                				zoneTELOPscore[c-11] = (int) cell.getNumericCellValue(); 
+	                				zoneTELOPscore[c-11] += (int) cell.getNumericCellValue(); 
 	                			}
 	                		}
 	                		else if(c == 17) {
