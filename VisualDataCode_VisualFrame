@@ -1,9 +1,12 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -15,18 +18,19 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-public class VisualFrame extends JFrame{
+public class VisualFrame extends JFrame implements ActionListener{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	JButton backb;
+	
 	public VisualFrame(JFrame a, int teamnum) throws IOException{
 		JFrame frame = a; // Creates get global frame variable, and sets it to a local variable
 		JLabel fieldpic = new JLabel(); // Creates a Label variable
 		ImageIcon backpic = new ImageIcon("field2020.png"); //Creates a ImageIcon variable
-		
+
 		//Actual Data From Execel Sheet
 		ArrayList<Integer> rowToGet = new ArrayList<Integer>(); // Stores the rows where the team's info is.
 		int wheelComplete = 0;// Stores the a value which says if they did color wheel(0 = No Color Wheel, 1 = Color Wheel Spun, 2 = Color Wheel Spun to Color)
@@ -35,6 +39,11 @@ public class VisualFrame extends JFrame{
 		int[] zoneAUTOscore = new int[6];
 		int[] zoneTELOPscore = new int[6];
 		int numgames = 0; // Counts number of games played by the team number
+		
+		backb = new JButton();
+		backb.setBounds(1115,536,75,25);
+		backb.addActionListener(this);
+		frame.add(backb);
 		
 		Color customColor = new Color(0,162,232); //Creates a background color
 		
@@ -54,6 +63,8 @@ public class VisualFrame extends JFrame{
 		fieldpic.setHorizontalAlignment(0); // Centers ImageIcon
 		fieldpic.setVerticalAlignment(0); // Centers ImageIcon
 		frame.add(fieldpic);
+		
+		
 		
 	
 		String file = "3538_2020misou.xlsx";
@@ -150,8 +161,28 @@ public class VisualFrame extends JFrame{
 	    		System.out.println("Autonomous Points at Zone 2/3: " + (zoneAUTOscore[i] + zoneAUTOscore[i+1]));
 	    	}
 	    }
+	    if(wheelComplete == 0) {
+	    	System.out.println("Team#: "+ teamnum + " did not turn the wheel.");
+	    }
+	    else if(wheelComplete == 1) {
+	    	System.out.println("Team#: "+ teamnum + " spun the wheel a certain number of times.");
+	    }
+	    else if(wheelComplete == 2) {
+	    	System.out.println("Team#: "+ teamnum + " spun the wheel to a certain color.");
+	    }
+	    else {
+	    	System.out.println("Error: wheelComplete Logic");
+	    }
 	    
 		frame.setVisible(true); // Makes the frame visible with all of it's stuff
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==backb) {
+			System.out.print("LOLL");
+		}
+		
 	}
 
 }
