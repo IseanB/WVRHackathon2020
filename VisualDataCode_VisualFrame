@@ -108,7 +108,7 @@ public class VisualFrame extends JFrame{
 	    /**
 	     * 
 	     */
-	    for(int r = 0; r < rowToGet.size()-1; r++) {
+	    for(int r = 0; r < rowToGet.size(); r++) {
 	        row = sheet.getRow(rowToGet.get(r));
 	        if(row != null) {
 	            for(int c = 0; c < cols; c++) {
@@ -141,12 +141,17 @@ public class VisualFrame extends JFrame{
 	    System.out.println("Total Autonomous Points: " + totAUTOscore);
 	    System.out.println("Total Teloperational Points: " + totTELOPscore);
 	    for(int i=0; i<=5;i++){
-	    	System.out.println("Telopertation Points at Zone #" + i + ": " + zoneTELOPscore[i]);
-	    	System.out.println("Autonomous Points at Zone #" + i + ": " + zoneAUTOscore[i]);
+	    	if(i != 1 && i != 2) {
+	    		System.out.println("Teleoperation Points at Zone " + (i+1) + ": " + (zoneTELOPscore[i]));
+	    		System.out.println("Autonomous Points at Zone " + (i+1) + ": " + (zoneAUTOscore[i]));
+	    	}
+	    	else if(i == 1) {
+	    		System.out.println("Teleoperation Points at Zone 2/3: " + (zoneTELOPscore[i] + zoneTELOPscore[i+1]));
+	    		System.out.println("Autonomous Points at Zone 2/3: " + (zoneAUTOscore[i] + zoneAUTOscore[i+1]));
+	    	}
 	    }
 	    
 		frame.setVisible(true); // Makes the frame visible with all of it's stuff
 	}
 
 }
-
