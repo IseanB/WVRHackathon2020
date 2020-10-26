@@ -49,7 +49,7 @@ public class IndexFrame2020 extends MainFrame implements ActionListener{
 		//all raw data
 		rawDataAllButton = new JButton();
 		rawDataAllButton.setBounds(1050, 200, 100, 50);
-		rawDataAllButton.setText("All Data");
+		rawDataAllButton.setText("Robot Analytics");
 		rawDataAllButton.addActionListener(this);
 		
 		//raw data text field
@@ -102,21 +102,6 @@ public class IndexFrame2020 extends MainFrame implements ActionListener{
 		frame.setVisible(true);
 		
 	}
-	public void VisualFrame_Construction(){
-		try {
-			frame.remove(backButton);
-			frame.remove(rawDataButton);
-			frame.remove(rawDataAllButton);
-			frame.remove(rawDatatextfield);
-			frame.remove(Pointranking);
-			frame.remove(notesButton);
-			new VisualFrame(frame, teamnum);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==backButton) {
@@ -128,7 +113,21 @@ public class IndexFrame2020 extends MainFrame implements ActionListener{
 			frame.remove(notesButton);
 			new MainFrame();
 		} 
-
+		else if(e.getSource()==visualButton) {
+			frame.remove(backButton);
+			frame.remove(rawDataButton);
+			frame.remove(rawDataAllButton);
+			frame.remove(rawDatatextfield);
+			frame.remove(Pointranking);
+			frame.remove(notesButton);
+			frame.remove(visualButton);
+			try {
+				new VisualFrame(frame, Integer.parseInt(rawDatatextfield.getText()));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 		
 		
 	}
