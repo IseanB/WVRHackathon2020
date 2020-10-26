@@ -3,13 +3,15 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 
-public class IndexFrame2020 extends JFrame implements ActionListener{
+public class IndexFrame2020 extends MainFrame implements ActionListener{
 	
 
 	String teamNumberRawData;
@@ -17,18 +19,22 @@ public class IndexFrame2020 extends JFrame implements ActionListener{
 	String teamNumberRobotType;
 	static JButton backButton;
 	static JButton rawDataButton;
-	static JButton robotTypeButton;
 	static JButton Pointranking;
 	static JButton rawDataAllButton;
 	static JButton notesButton;
-	static JTextField robotTypetextfield;
 	static JTextField rawDatatextfield;
-	
+	static JButton visualButton;
+	private JFrame frame;
+	private int teamnum;
 
 	
-	IndexFrame2020() {
+	IndexFrame2020(JFrame frame1, int teamnum1) {
 		
+		frame = frame1;
+		teamnum = teamnum1;
 		//back
+		frame.dispose();
+		
 		backButton = new JButton();
 		backButton.setBounds(20, 20, 100, 25);
 		backButton.setText("Back");
@@ -50,17 +56,8 @@ public class IndexFrame2020 extends JFrame implements ActionListener{
 		rawDatatextfield = new JTextField();
 		rawDatatextfield.setBounds(650, 200, 200, 50);
 
-		
-		//line 2: robot Type button
-		robotTypeButton = new JButton();
-		robotTypeButton.setBounds(900, 275, 200, 50);
-		robotTypeButton.setText("Robot Type");
-		robotTypeButton.addActionListener(this);
 
-		//robot Type text field
-		robotTypetextfield = new JTextField();
-		robotTypetextfield.setBounds(650, 275, 200, 50);
-		
+
 		//line 3: point ranking
 		Pointranking = new JButton();
 		Pointranking.setBounds(650, 350, 200, 50);
@@ -73,10 +70,17 @@ public class IndexFrame2020 extends JFrame implements ActionListener{
 		notesButton.setText("Notes");
 		notesButton.addActionListener(this);
 		
+		rawDatatextfield.setText("Enter Team#");
 		
+		visualButton = new JButton();
+		visualButton.setBounds(650, 500, 200, 50);
+		visualButton.setText("Visuals");
+		visualButton.addActionListener(this);
+
+		//adding
+		frame.add(visualButton);
 		
-		
-		
+		/**
 		this.setTitle("WVR Scouting App: Index Frame 2020"); // Titles the Window
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // When the X is clicked, the window closes
 		this.setResizable(false); // Keeps a consistent window size.
@@ -85,39 +89,47 @@ public class IndexFrame2020 extends JFrame implements ActionListener{
 		Color customColor = new Color(93, 188, 210); //Creates a background color
 		this.getContentPane().setBackground(customColor);
 		this.setLayout(null);
+		*/
+		frame.add(backButton);
+		
+		frame.add(rawDataButton);
+		frame.add(rawDataAllButton);
+		frame.add(rawDatatextfield);
 
-		this.add(backButton);
+		frame.add(Pointranking);
 		
-		this.add(rawDataButton);
-		this.add(rawDataAllButton);
-		this.add(rawDatatextfield);
-		
-		this.add(robotTypeButton);
-		this.add(robotTypetextfield);
-		
-		
-		this.add(Pointranking);
-		
-		this.add(notesButton);
+		frame.add(notesButton);
+		frame.setVisible(true);
 		
 	}
+	public void VisualFrame_Construction(){
+		try {
+			frame.remove(backButton);
+			frame.remove(rawDataButton);
+			frame.remove(rawDataAllButton);
+			frame.remove(rawDatatextfield);
+			frame.remove(Pointranking);
+			frame.remove(notesButton);
+			new VisualFrame(frame, teamnum);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==backButton) {
-			this.dispose();
-			MainFrame mainframe = new MainFrame();
+			frame.remove(backButton);
+			frame.remove(rawDataButton);
+			frame.remove(rawDataAllButton);
+			frame.remove(rawDatatextfield);
+			frame.remove(Pointranking);
+			frame.remove(notesButton);
+			new MainFrame();
 		} 
-		if (e.getSource()==rawDataButton) {
-			teamNumberRawData = rawDatatextfield.getText();
-			System.out.println(rawDatatextfield.getText());
-			rawDatatextfield.setText(" ");
-			
-		}
+
 		
-		if (e.getSource()==robotTypeButton) {
-			teamNumberRobotType = robotTypetextfield.getText();
-			System.out.println(robotTypetextfield.getText());
-			robotTypetextfield.setText(" ");
-		}
+		
 	}
 }
