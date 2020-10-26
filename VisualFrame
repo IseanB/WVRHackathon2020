@@ -24,13 +24,19 @@ public class VisualFrame extends JFrame implements ActionListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	JButton backb;
+	private JButton backb;
+	private JLabel fieldpic;
+	private JFrame frame;
+	private int teamnum;
 	
-	public VisualFrame(JFrame a, int teamnum) throws IOException{
-		JFrame frame = a; // Creates get global frame variable, and sets it to a local variable
-		JLabel fieldpic = new JLabel(); // Creates a Label variable
+	
+	public VisualFrame(JFrame a, int b) throws IOException{
+		frame = a; // Creates get global frame variable, and sets it to a local variable
+		teamnum = b;
+		fieldpic = new JLabel(); // Creates a Label variable
 		ImageIcon backpic = new ImageIcon("field2020.png"); //Creates a ImageIcon variable
 
+		frame.dispose();
 		//Actual Data From Execel Sheet
 		ArrayList<Integer> rowToGet = new ArrayList<Integer>(); // Stores the rows where the team's info is.
 		int wheelComplete = 0;// Stores the a value which says if they did color wheel(0 = No Color Wheel, 1 = Color Wheel Spun, 2 = Color Wheel Spun to Color)
@@ -41,18 +47,19 @@ public class VisualFrame extends JFrame implements ActionListener{
 		int numgames = 0; // Counts number of games played by the team number
 		
 		backb = new JButton();
-		backb.setBounds(1115,536,75,25);
+		backb.setBounds(20, 20, 100, 25);
 		backb.addActionListener(this);
 		frame.add(backb);
 		
 		Color customColor = new Color(0,162,232); //Creates a background color
 		
-		
+		/**
 		frame.setTitle("WVR Scouting App: Visual Data"); // Titles the Window
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // When the X is clicked, the window closes
 		frame.setResizable(false); // Keeps a consistent window size.
 		frame.setSize(1200,600);  // In pixels, the size of the widow. (width x height)
 		frame.getContentPane().setBackground(customColor);
+		*/
 		
 		fieldpic.setIcon(backpic); //Puts the Label as the ImageIcon
 		fieldpic.setText("2020 Field Diagram");
@@ -180,9 +187,12 @@ public class VisualFrame extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==backb) {
-			System.out.print("LOLL");
+			frame.remove(backb);
+			frame.remove(fieldpic);
+			new IndexFrame2020(frame, teamnum);
 		}
 		
 	}
 
 }
+
