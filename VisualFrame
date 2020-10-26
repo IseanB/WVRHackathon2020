@@ -49,18 +49,12 @@ public class VisualFrame extends JFrame implements ActionListener{
 		backb = new JButton();
 		backb.setBounds(20, 20, 100, 25);
 		backb.addActionListener(this);
+		backb.setText("Back");
 		frame.add(backb);
 		
 		Color customColor = new Color(0,162,232); //Creates a background color
 		
-		/**
-		frame.setTitle("WVR Scouting App: Visual Data"); // Titles the Window
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // When the X is clicked, the window closes
-		frame.setResizable(false); // Keeps a consistent window size.
-		frame.setSize(1200,600);  // In pixels, the size of the widow. (width x height)
-		frame.getContentPane().setBackground(customColor);
-		*/
-		
+
 		fieldpic.setIcon(backpic); //Puts the Label as the ImageIcon
 		fieldpic.setText("2020 Field Diagram");
 		fieldpic.setFont(new Font("TimesRoman", Font.BOLD, 20));
@@ -70,7 +64,7 @@ public class VisualFrame extends JFrame implements ActionListener{
 		fieldpic.setHorizontalAlignment(0); // Centers ImageIcon
 		fieldpic.setVerticalAlignment(0); // Centers ImageIcon
 		frame.add(fieldpic);
-		
+		frame.setVisible(true);
 		
 		
 	
