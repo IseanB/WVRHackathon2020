@@ -42,8 +42,8 @@ public class VisualFrame extends JFrame implements ActionListener{
 		int wheelComplete = 0;// Stores the a value which says if they did color wheel(0 = No Color Wheel, 1 = Color Wheel Spun, 2 = Color Wheel Spun to Color)
 		int totAUTOscore = 0; //Counts how many points scored during AUTONOMOUS
 		int totTELOPscore = 0; //Counts how many points scored during TELEOP
-		int[] zoneAUTOscore = new int[6];
-		int[] zoneTELOPscore = new int[6];
+		int[] zoneAUTOscore = new int[5];
+		int[] zoneTELOPscore = new int[5];
 		int numgames = 0; // Counts number of games played by the team number
 		
 		backb = new JButton();
@@ -152,7 +152,7 @@ public class VisualFrame extends JFrame implements ActionListener{
 	    }
 	    System.out.println("Total Autonomous Points: " + totAUTOscore);
 	    System.out.println("Total Teloperational Points: " + totTELOPscore);
-	    for(int i=0; i<=5;i++){
+	    for(int i=0; i<zoneTELOPscore.length;i++){
 	    	if(i != 1 && i != 2) {
 	    		System.out.println("Teleoperation Points at Zone " + (i+1) + ": " + (zoneTELOPscore[i]));
 	    		System.out.println("Autonomous Points at Zone " + (i+1) + ": " + (zoneAUTOscore[i]));
