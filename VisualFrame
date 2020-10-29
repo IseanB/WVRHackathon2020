@@ -35,7 +35,7 @@ public class VisualFrame extends MainFrame implements ActionListener{
 		teamnum = b;
 		frame.dispose();
 		fieldpic = new JLabel(); // Creates a Label variable
-		ImageIcon backpic = new ImageIcon( "fieldimg.png" ); //Creates a ImageIcon variable
+		ImageIcon backpic = new ImageIcon( "field2020.png" ); //Creates a ImageIcon variable
 
 		//Actual Data From Execel Sheet
 		ArrayList<Integer> rowToGet = new ArrayList<Integer>(); // Stores the rows where the team's info is.
