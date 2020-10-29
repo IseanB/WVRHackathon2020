@@ -24,10 +24,12 @@ public class MainFrame extends JFrame implements ActionListener{
 	private static JLabel appName;
 	private JFrame frame;
 	private int teamnum;
+	public ImageIcon backpic;
 	
 	public MainFrame() {
 		frame = new JFrame();
 		teamnum = 33;
+		backpic = new ImageIcon("fieldimg.png");
 		button2020 = new JButton();
 		button2020.setBounds(700, 400, 200, 100);
 		button2020.setText("2020");
@@ -48,11 +50,11 @@ public class MainFrame extends JFrame implements ActionListener{
 		button2018.setFocusable(false);
 		
 		
-		ImageIcon WVRicon = new ImageIcon("WVR.png");
+		ImageIcon WVRicon = new ImageIcon("WVR.jpg");
 		
 		WVRlabel = new JLabel();
 		WVRlabel.setIcon(WVRicon);
-		WVRlabel.setBounds(500, 0, 200, 300);
+		WVRlabel.setBounds(525, 200, 150, 150);
 		WVRlabel.setText("FRC Scouting App");
 		
 		
@@ -80,8 +82,8 @@ public class MainFrame extends JFrame implements ActionListener{
 			frame.remove(button2018);
 			frame.remove(button2019);
 			frame.remove(button2020);
+			frame.setVisible(true);
 			new IndexFrame2020(frame, teamnum);
 		}
 	}
 }
-
