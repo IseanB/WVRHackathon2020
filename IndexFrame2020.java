@@ -123,6 +123,9 @@ public class IndexFrame2020 extends MainFrame implements ActionListener{
 			frame.remove(visualButton);
 			try {
 				new VisualFrame(frame, Integer.parseInt(rawDatatextfield.getText()));
+			} catch (NumberFormatException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
