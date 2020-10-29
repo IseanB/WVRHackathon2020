@@ -18,7 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-public class VisualFrame extends JFrame implements ActionListener{
+public class VisualFrame extends MainFrame implements ActionListener{
 	
 	/**
 	 * 
@@ -26,17 +26,17 @@ public class VisualFrame extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	private JButton backb;
 	private JLabel fieldpic;
-	private JFrame frame;
-	private int teamnum;
+	JFrame frame;
+	int teamnum;
 	
 	
 	public VisualFrame(JFrame a, int b) throws IOException{
 		frame = a; // Creates get global frame variable, and sets it to a local variable
 		teamnum = b;
-		fieldpic = new JLabel(); // Creates a Label variable
-		ImageIcon backpic = new ImageIcon("field2020.png"); //Creates a ImageIcon variable
-
 		frame.dispose();
+		fieldpic = new JLabel(); // Creates a Label variable
+		ImageIcon backpic = new ImageIcon( "fieldimg.png" ); //Creates a ImageIcon variable
+
 		//Actual Data From Execel Sheet
 		ArrayList<Integer> rowToGet = new ArrayList<Integer>(); // Stores the rows where the team's info is.
 		int wheelComplete = 0;// Stores the a value which says if they did color wheel(0 = No Color Wheel, 1 = Color Wheel Spun, 2 = Color Wheel Spun to Color)
@@ -54,6 +54,11 @@ public class VisualFrame extends JFrame implements ActionListener{
 		
 		Color customColor = new Color(0,162,232); //Creates a background color
 		
+		frame.setTitle("WVR Scouting App: Visual Data"); // Titles the Window
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // When the X is clicked, the window closes
+		frame.setResizable(false); // Keeps a consistent window size.
+		frame.setSize(1200,600);  // In pixels, the size of the widow. (width x height)
+		frame.getContentPane().setBackground(customColor);
 
 		fieldpic.setIcon(backpic); //Puts the Label as the ImageIcon
 		fieldpic.setText("2020 Field Diagram");
@@ -63,9 +68,8 @@ public class VisualFrame extends JFrame implements ActionListener{
 		fieldpic.setVerticalTextPosition(1);
 		fieldpic.setHorizontalAlignment(0); // Centers ImageIcon
 		fieldpic.setVerticalAlignment(0); // Centers ImageIcon
+		fieldpic.setBounds(174, 50, 852, 461);
 		frame.add(fieldpic);
-		frame.setVisible(true);
-		
 		
 	
 		String file = "3538_2020misou.xlsx";
@@ -177,6 +181,7 @@ public class VisualFrame extends JFrame implements ActionListener{
 	    
 		frame.setVisible(true); // Makes the frame visible with all of it's stuff
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -187,6 +192,7 @@ public class VisualFrame extends JFrame implements ActionListener{
 		}
 		
 	}
+	
 
 }
 
