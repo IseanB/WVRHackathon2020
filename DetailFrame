@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -21,7 +20,7 @@ public class DetailFrame extends JFrame implements ActionListener{
 
     private static final long serialVersionUID = 1L;
     private JButton backb;
-    private JLabel fieldpic;
+    private JLabel title;
     private JFrame frame;
     private int teamnum;
     
@@ -35,6 +34,7 @@ public class DetailFrame extends JFrame implements ActionListener{
 	  int numgames = 0; // Counts number of games played by the team number
 	  boolean isMultiDef = false; // Shows that the robot can change defense style
           boolean isMultiTar = false; // Shows that the robot faced different defenses
+	  title= new JLabel();
 	  
   	  Color customColor = new Color(0,162,232); //Creates a background color
           frame.setTitle("WVR Scouting App: Robot Detail"); // Titles the Window
@@ -47,6 +47,13 @@ public class DetailFrame extends JFrame implements ActionListener{
 	  backButton.setBounds(20, 20, 100, 25);
           backButton.setText("Back");
           backButton.addActionListener(this);
+	  frame.add(backb);
+	  title.setFont(new java.awt.Font("TimesRoman", Font.ITALIC, 25));
+	  title.setText("ROBOT ANALYSIS");
+	  title.setForeground(Color.WHITE);
+	  title.setBounds(500, -200, 852, 461);
+	  frame.add(title);
+	
 		
 	
           String file = "3538_2020misou.xlsx";
@@ -169,6 +176,7 @@ public class DetailFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==backb) {
                     frame.remove(backb);
+		    frame.remove(title);
                     new IndexFrame2020(frame, teamnum);
 		} 
 	
