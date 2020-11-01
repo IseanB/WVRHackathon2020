@@ -1,4 +1,3 @@
-package test1;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,7 +28,7 @@ public class opr extends JFrame { //implements ActionListener{
 	
 	public opr(JFrame a, int teamnum) throws IOException{
 		int teams = 38; 	//sometimes known as r1
-		String finale = "finalmaster.xlsx";
+		String finale = "blueAllianceData.xlsx";
 		OPCPackage finalefs = null;
 		try {
 			finalefs = OPCPackage.open(new File(finale));
