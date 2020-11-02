@@ -22,6 +22,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	public JFrame frame;
 	public int teamnum;
 	public ImageIcon backpic;
+	public static JLabel FRClogo;
 	
 	
 	public MainFrame(JFrame indexFrames, int teamnumIndex) {
@@ -35,7 +36,7 @@ public class MainFrame extends JFrame implements ActionListener{
 			teamnum = teamnumIndex;
 			
 		}
-		
+			
 			backpic = new ImageIcon("fieldimg.png");
 			
 			button2020 = new JButton();
@@ -77,10 +78,20 @@ public class MainFrame extends JFrame implements ActionListener{
 			WVRScouting.setForeground(new Color(0xFFFFFF));
 			WVRScouting.setVerticalAlignment(JLabel.CENTER);
 			
+			ImageIcon FRCicon = new ImageIcon(new ImageIcon("1200px-FRC_Logo.svg.png").getImage().getScaledInstance(120, 80, Image.SCALE_DEFAULT));
+			
+			FRClogo = new JLabel();
+			FRClogo.setIcon(FRCicon);
+			FRClogo.setBounds(1030, 50, 120, 80);
+			
+			FRClogo.setFocusable(false);
+			FRClogo.setHorizontalAlignment(JLabel.CENTER);
+			FRClogo.setForeground(new Color(0xFFFFFF));
+			FRClogo.setVerticalAlignment(JLabel.CENTER);
 			frame.add(WVRlabel);
 			frame.add(button2020);
 			frame.add(WVRScouting);
-			
+			frame.add(FRClogo);
 		if (indexFrames == null) {
 			
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // When the X is clicked, the window closes
@@ -109,6 +120,7 @@ public class MainFrame extends JFrame implements ActionListener{
 			frame.remove(button2020);
 			frame.remove(WVRScouting);
 			frame.remove(WVRlabel);
+			frame.remove(FRClogo);
 			
 			new IndexFrame(frame);
 		} 

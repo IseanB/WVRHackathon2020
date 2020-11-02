@@ -1,10 +1,12 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,6 +36,7 @@ public class IndexFrame extends JFrame implements ActionListener{
 	static JLabel pointRankingLabel;
 	static JLabel notesLabel;
 	public JFrame IndexFrames;
+	public static JLabel FRClogo;
 	
 	public IndexFrame(JFrame frame) {
 		IndexFrames = frame;
@@ -129,7 +132,18 @@ public class IndexFrame extends JFrame implements ActionListener{
 		visualLabel.setFont(new Font("MV Boli", Font.PLAIN,20));
 		visualLabel.setForeground(new Color(0xFFFFFF));
 		 
+
+		ImageIcon FRCicon = new ImageIcon(new ImageIcon("1200px-FRC_Logo.svg.png").getImage().getScaledInstance(120, 80, Image.SCALE_DEFAULT));
 		
+		FRClogo = new JLabel();
+		FRClogo.setIcon(FRCicon);
+		FRClogo.setBounds(1030, 50, 120, 80);
+		
+		FRClogo.setFocusable(false);
+		FRClogo.setHorizontalAlignment(JLabel.CENTER);
+		FRClogo.setForeground(new Color(0xFFFFFF));
+		FRClogo.setVerticalAlignment(JLabel.CENTER);
+		IndexFrames.add(FRClogo);
 		IndexFrames.add(backButton);
 		IndexFrames.add(visualLabel);
 		IndexFrames.add(visualButton);
@@ -162,6 +176,7 @@ public class IndexFrame extends JFrame implements ActionListener{
 		IndexFrames.setVisible(false); // Makes the frame visible
 		IndexFrames.setVisible(true);
 		
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -181,8 +196,11 @@ public class IndexFrame extends JFrame implements ActionListener{
 			notesLabel.setVisible(false);
 			pointRankingLabel.setVisible(false);
 			rawDataLabel.setVisible(false);
+			FRClogo.setVisible(false);
 			
-
+		
+				new MainFrame(IndexFrames, 0);
+		
 			
 		} else if (e.getSource()==robotTypeButton) {
 			backButton.setVisible(false);
@@ -197,14 +215,15 @@ public class IndexFrame extends JFrame implements ActionListener{
 			notesLabel.setVisible(false);
 			pointRankingLabel.setVisible(false);
 			rawDataLabel.setVisible(false);
-			
-			try {
+			FRClogo.setVisible(false);
+			/*try {
 				new DetailFrame(IndexFrames, Integer.parseInt(rawDatatextfield.getText()));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				
 			}
+			*/
 		} else if (e.getSource()==notesButton) {
 			
 		} else if (e.getSource()==Pointranking) {
@@ -222,12 +241,14 @@ public class IndexFrame extends JFrame implements ActionListener{
 			notesLabel.setVisible(false);
 			pointRankingLabel.setVisible(false);
 			rawDataLabel.setVisible(false);
-			try {
+			FRClogo.setVisible(false);
+			/*try {
 				new VisualFrame(IndexFrames,Integer.parseInt(rawDatatextfield.getText()));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			*/
 		}
 
 	}
