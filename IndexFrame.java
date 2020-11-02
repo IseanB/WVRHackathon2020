@@ -249,7 +249,38 @@ public class IndexFrame extends JFrame implements ActionListener{
 				e1.printStackTrace();
 			}
 			*/
-		}
+		}else if(e.getSource()==notesButton) {
+			frame.remove(backButton);
+			frame.remove(rawDataButton);
+			frame.remove(rawDataAllButton);
+			frame.remove(rawDatatextfield);
+			frame.remove(Pointranking);
+			frame.remove(notesButton);
+			frame.remove(visualButton);
+			boolean GoodNumber = true;
+			if (rawDatatextfield.getText() != null) {
+				try {
+					int i = Integer.parseInt(rawDatatextfield.getText());
+					
+				} catch (NumberFormatException e1) {
+					JOptionPane.showMessageDialog(null, "Make sure the team number is an integer", "InfoBox: " + "Error", JOptionPane.INFORMATION_MESSAGE);
+					GoodNumber = false;
+				}
+			} else {
+				GoodNumber = false;
+				JOptionPane.showMessageDialog(null, "Please input a team number", "InfoBox: " + "Error", JOptionPane.INFORMATION_MESSAGE);
+			}if (GoodNumber == true) {
+				int i = Integer.parseInt(rawDatatextfield.getText());
+				try {
+					new Notes(frame,i);
+				} catch (InvalidFormatException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
 
 	}
 }
