@@ -13,14 +13,14 @@ Definitions:
 	    Back Button                                                             Chandrack, Harris                
 
 
-Basic Info:
-	- ~1231 lines of code written.
-	- "poi apachie-1.4.2" library used.
-	- JavaSE-1.8 used in Eclipse IDE.
-	- Made for 2020 Beach Blitz: Scouting Hackathon.
-	- Important Features: 
-		Visualed Scoring data.
-		OPR calculation. 
-		Average Point calculation and ranking.
-		Defense and Offensive indicator.
-		Storable Notes for each team.
+	Basic Info:
+		- Made for 2020 Beach Blitz: Scouting Hackathon.
+		- ~1231 lines of code written.
+		- "poi apachie-1.4.2" library used.
+		- JavaSE-1.8 used in Eclipse IDE.
+		- Important Features: 
+			Visualed Scoring data.
+			OPR calculation. 
+			Average Point calculation and ranking.
+			Defense and Offensive indicator.
+			Storable Notes for each team.
